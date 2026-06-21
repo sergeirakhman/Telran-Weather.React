@@ -1,10 +1,14 @@
-import React from 'react';
+import {useDispatch} from "react-redux";
+import {fetchWeather} from "../actions/weatherActions.js";
 
-const Form = ({getWeather}) => {
+const Form = () => {
+
+    const dispatch = useDispatch();
+
     const handleClickSubmit = (event) => {
         event.preventDefault();
         const city = event.currentTarget.city.value.trim();
-        getWeather(city);
+        dispatch(fetchWeather(city));
     }
 
     return (
@@ -18,7 +22,6 @@ const Form = ({getWeather}) => {
             <div className={'col-auto'}>
                 <button type={"submit"} className={'btn btn-primary'}>Get weather</button>
                 </div>
-
         </form>
     );
 };
