@@ -1,11 +1,10 @@
-import {applyMiddleware, createStore} from "redux";
+import {applyMiddleware, legacy_createStore as createStore} from "redux";
 import {weatherReducer} from "../reducers/weatherReducer.js";
 import {thunk} from "redux-thunk";
 import {logger} from "redux-logger/src/index.js";
 
 const initialState = {
-    weather: null,
-    loading: false,
+    weatherInfo: {},
     message: 'Enter city name',
 }
 

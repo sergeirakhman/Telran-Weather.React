@@ -1,9 +1,11 @@
-import {GET_WEATHERS_REQUEST} from "../actions/weatherActions.js";
+import {SET_MESSAGE, SET_WEATHER} from "../actions/weatherActions.js";
 
 export const weatherReducer = (state, action) => {
     switch (action.type) {
-        case GET_WEATHERS_REQUEST:
-            return { ...state, ...action.payload};
+        case SET_WEATHER:
+            return { ...state, weatherInfo: action.payload};
+        case SET_MESSAGE:
+            return { ...state, message: action.payload };
         default:
             return state;
     }
